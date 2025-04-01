@@ -9,18 +9,18 @@ Además, programa el método getTotalThrows que debe mostrar el número total de
 
 class PokerDice {
     // propiedad para almacenar la figura actual
-    private $currentShape;
+    private $currentShape = null;
 
     // propiedad estatica para contar el total de tiradas
     private static $totalThrows = 0;
 
-    // array con las caras del dado
-    private $shapes = ["As", "K", "Q", "J", "7", "8"];
+    // array con las caras del dado  (debo anexar un static)
+    private static $shapes = ["As", "K", "Q", "J", "7", "8"];
 
     // metodo para lanzar el dado
     public function throwDice() {
         // seleccionar una figura aleatoria
-        $this->currentShape = $this->shapes[rand(0, 5)];
+        $this->currentShape = self:: $shapes[array_rand(self::$shapes)];
         // incrementar el contador de tiradas totales
         self::$totalThrows++;
     }
